@@ -1,6 +1,12 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from "redux";
 import * as loginAction from '../Action/loginAction'
+import InputBox from "./Common/inputbox"
+import Label from "./Common/label"
+import Button from "./Common/button"
+import "./login.scss"
+
+import { Container, Col, Row } from 'react-bootstrap';
 
 import React, { useState } from 'react';
 
@@ -10,25 +16,29 @@ function App(props) {
   const [pass,setPass] = useState()
   
     return (
-      <div className="App">
-          <div>
-            <span>
-              User Name
-            </span>
-            <br/>
-            <input onChange={(e)=>setUname(e.target.value)} />
-            <br/>
-            <span>
-              Password
-            </span>
-            <br/>
-            <input onChange={(e)=>setPass(e.target.value)} />
-            <br/>
-            <button onClick={()=>props.login({userName:uname,password:pass})}>
-              Login
-            </button>
-          </div>
-      </div>
+      <Container>
+        <Row>
+          <Col className={"textAlignCenter"}>
+          <Col lg={5} className={"ShadowBox p10 mt80 login"}>
+              <div>
+                  <Label text="User Name" />
+                  <InputBox className={"mb15px"} onChange={setUname} />
+
+                  <Label text="Password" />
+                  <InputBox className={"mb20px"} onChange={setPass} />
+
+                <Button 
+                    className={"loginBtn"}
+                    text={"Login"}
+                    onClick={()=>props.login({userName:uname,password:pass})} 
+                />
+                  
+              </div>
+          </Col>
+          </Col>
+        </Row>
+         
+      </Container>
     );
   }
   
