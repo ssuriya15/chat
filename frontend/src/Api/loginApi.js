@@ -4,8 +4,10 @@ import qs from "qs";
 
 class LoginApi{
     static signUp(data){
-        let obj = qs.stringify(data)
-        return axios.post("/signUp",obj)
+        return axios.post("/signUp",data)
+    }
+    static login(data){
+        return axios.post("/login",data)
     }
 }
 

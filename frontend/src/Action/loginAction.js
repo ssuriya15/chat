@@ -1,8 +1,11 @@
 import LoginApi from "../Api/loginApi"
 
-export function login(){
-     return function(dispatch){
-        dispatch({type:"LOGIN"})
+export function login(data){
+    return function(dispatch){
+        LoginApi.login(data)
+        .then((res)=>{
+            dispatch({type:"LOGIN",payload:res})
+        })
     } 
 }
 

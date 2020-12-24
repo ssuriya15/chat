@@ -24,7 +24,7 @@ function App(props) {
             <br/>
             <input onChange={(e)=>setPass(e.target.value)} />
             <br/>
-            <button onClick={()=>props.login(uname,pass)}>
+            <button onClick={()=>props.login({userName:uname,password:pass})}>
               Login
             </button>
           </div>
