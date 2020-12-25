@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import "./common.scss"
 
 function Label(props) {
-    return <label className={"customLabel"}>
-                {props.text}
-            </label>
+    return <div className={"customLabel "+props.className}>
+                <label>
+                    {props.text}
+                </label>
+            </div>
 }
 
 export default Label

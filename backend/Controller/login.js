@@ -1,54 +1,35 @@
-const LoginDao = require("../Models/login")
+const LoginService = require("../Service/loginService")
 
-module.exports.signUp= function(req,res){
-    
-    try{
-        let obj = {
-            name:req.body.name,
-            userName:req.body.userName,
-            email:req.body.email,
-            password:req.body.password,
-        };
-        let signUpModel = new LoginDao.login(obj) 
-        signUpModel.save()
-        .then((data)=>{            
-            res.status(200).json({
-                success:"Signup successfully",
-                details:data
-            }) 
-        })
-                    
+module.exports.login= async function(req,res){
+        try{
+            let obj = {
+                userName:req.body.userName,
+                password:req.body.password, 
+            };
+            let resObj = await LoginService.login(obj)
+            res.status(200).json(resObj)              
         }catch(e){
             res.status(400).json({ msg: e.message, success: false });
         }
 }
-module.exports.login= function(req,res){
+
+
+module.exports.signUp=async function(req,res){
     
-    try{
-        let obj = {
-            userName:req.body.userName,
-            password:req.body.password, 
-        };
-        LoginDao.login.findOne({"userName":obj.userName})
-        .then((data)=>{  
-            if(data.password === obj.password){
-                res.status(200).json({
-                    success:"login successfully",
-                    userId:data._id
-                }) 
-            }else{
-                res.status(200).json({
-                    failure:"password mismatch",
-                    userId:data._id
-                }) 
-            }     
-            
-        })
-                    
+        try{
+            let obj = {
+                name:req.body.name,
+                userName:req.body.userName,
+                email:req.body.email,
+                password:req.body.password,
+            };
+            let resObj = await LoginService.signUp(obj)
+                res.status(200).json(resObj)  
         }catch(e){
             res.status(400).json({ msg: e.message, success: false });
         }
-}
+} 
+/* 
 module.exports.listName= function(req,res){
     
     try{
@@ -112,4 +93,4 @@ module.exports.listUsr= function(req,res){
         }catch(e){
             res.status(400).json({ msg: e.message, success: false });
         }
-}
+} */

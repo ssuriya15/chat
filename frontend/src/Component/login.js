@@ -12,26 +12,44 @@ import React, { useState } from 'react';
 
 function App(props) {
 
-  const [uname,setUname] = useState()
-  const [pass,setPass] = useState()
-  
+  const [state,setState] = useState({
+    uname:"",
+    pass:""
+  })
+
+  const onChange=(e)=>{
+    setState({
+        ...state,
+        [e.target.id]:e.target.value
+      })
+  }
+
     return (
+      <div className="Loginfullpage">
       <Container>
         <Row>
           <Col className={"textAlignCenter"}>
           <Col lg={5} className={"ShadowBox p10 mt80 login"}>
               <div>
+                  <Label text="Login" className={"loginCaption mb20px"} />
+
                   <Label text="User Name" />
-                  <InputBox className={"mb15px"} onChange={setUname} />
+                  <InputBox className={"mb15px"} id="uname" onChange={onChange} />
 
                   <Label text="Password" />
-                  <InputBox className={"mb20px"} onChange={setPass} />
+                  <InputBox type={"Password"} className={"mb30px"} id="pass" onChange={onChange} />
 
                 <Button 
-                    className={"loginBtn"}
+                    className={"loginBtn mb15px"}
                     text={"Login"}
-                    onClick={()=>props.login({userName:uname,password:pass})} 
+                    onClick={()=>props.login({userName:state.uname,password:state.pass})} 
                 />
+
+                <div className={"textAlignCenter"}>
+                  <a className={"mb30px"} href={"/signUp"}>
+                    Don't have an account?
+                  </a>
+                </div>
                   
               </div>
           </Col>
@@ -39,6 +57,7 @@ function App(props) {
         </Row>
          
       </Container>
+      </div>
     );
   }
   

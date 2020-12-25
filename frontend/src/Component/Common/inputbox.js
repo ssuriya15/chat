@@ -3,8 +3,10 @@ import "./common.scss"
 
 function InputBox(props) {
     return <input 
-                onChange={e=>props.onChange(e.target.value)} 
-                className={"inputBox "+props.className} 
+                type={props.type || ""}
+                id={props.id || ""}
+                onChange={e=>props.onChange(e)} 
+                className={"inputBox "+(props.className || "")} 
             />
 }
 

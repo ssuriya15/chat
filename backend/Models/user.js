@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-let loginSchema = mongoose.Schema({
+let user = mongoose.Schema({
    name:{
        type:String,
        required:true
@@ -18,7 +18,7 @@ let loginSchema = mongoose.Schema({
    }
 });
 
-module.exports.login = mongoose.model("login",loginSchema)
+module.exports.user = mongoose.model("user",user)
 let create = mongoose.Schema({
    name:{
        type:String,

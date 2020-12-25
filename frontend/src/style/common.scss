@@ -1,3 +1,15 @@
+html{
+    //position: relative;
+}
+
+body, html {
+    height: 100%;
+  }
+
+  #root{
+      height: 100%;
+  }
+
 
 .ShadowBox{
     box-shadow: 0px 0px 10px 0px #444;
@@ -14,6 +26,9 @@
 }
 .mb20px{
     margin-bottom: 20px;
+}
+.mb30px{
+    margin-bottom: 30px;
 }
 .mt20{
     margin-top: 20px;

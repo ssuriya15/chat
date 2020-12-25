@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./common.scss"
 
 function Buttons(props) {
-    return <button className={"btnclass "+props.className}>
+    return <button onClick={()=>props.onClick()} className={"btnclass "+props.className}>
                 {props.text}
             </button>
 }
