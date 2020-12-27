@@ -1,5 +1,8 @@
 const mongoose = require("mongoose");
 let user = mongoose.Schema({
+    img:{
+        type:String
+    },
    name:{
        type:String,
        required:true
@@ -15,15 +18,10 @@ let user = mongoose.Schema({
    password:{
        type:String,
        required:true
+   },
+   location:{
+       type:String
    }
 });
 
 module.exports.user = mongoose.model("user",user)
-let create = mongoose.Schema({
-   name:{
-       type:String,
-       required:true
-   }
-});
-
-module.exports.list = mongoose.model("list",create)

@@ -3,7 +3,9 @@ export default function loginReducer(state,action){
     switch (action.type){
         case "LOGIN":
             console.log("Reducer..")
-            return "Login successfully"
+            return {
+                ...state,status:"Login successfully"
+            }
 
         case "SIGN_UP_SUCCESS":
             if(action.payload.failure){

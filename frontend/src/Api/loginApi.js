@@ -1,4 +1,3 @@
-import { signUp } from "../Action/loginAction"
 import axios from "./api"
 import qs from "qs";
 

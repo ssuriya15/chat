@@ -3,9 +3,9 @@ import "./common.scss"
 
 function Label(props) {
     return <div className={"customLabel "+props.className}>
-                <label>
+                <span>
                     {props.text}
-                </label>
+                </span>
             </div>
 }
 

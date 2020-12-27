@@ -9,6 +9,7 @@ import store from "./store";
 
 import Login from './Component/login'
 import SignUp from './Component/signUp'
+import Profile from './Component/profile'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Switch>
        <Route exact path="/login" component={Login} /> 
        <Route exact path="/signUp" component={SignUp} /> 
+       <Route exact path="/profile" component={Profile} /> 
        </Switch>
     </Router>
   </Provider>,
